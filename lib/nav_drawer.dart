@@ -36,7 +36,8 @@ class nav_drawer extends StatelessWidget {
                     color: Color(0xFF202125),
                     /*image: DecorationImage(
                         fit: BoxFit.fill,
-                        image: AssetImage('assets/images/cover.jpg'))*/),
+                        image: AssetImage('assets/images/cover.jpg'))*/
+                ),
               ),
             ),
             ListTileTheme(
