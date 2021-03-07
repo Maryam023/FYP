@@ -1,8 +1,10 @@
 
 
+import 'dart:convert';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:remedium/patient_sign_in.dart';
+import 'package:http/http.dart' as http;
 
 import 'consultation.dart';
 import 'doctor_sign_in.dart';
@@ -60,6 +62,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String greetings = '';
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -160,6 +164,23 @@ class _MyHomePageState extends State<MyHomePage> {
                           MaterialPageRoute(builder: (context) => patient_sign_in()),
                         );},
                         child: Text("Patient",style:TextStyle(color: Colors.white))),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    RaisedButton(
+                        color: Color(0xFF3C4043),
+                        padding: EdgeInsets.fromLTRB(80, 20, 80, 20),
+                        shape:  new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                        onPressed:() async{
+                          final res = await  http.get("http://127.0.0.1:5000/");
+                          final decoded = json.decode(res.body) as Map <String, dynamic>;
+
+                          setState(() {
+                            greetings = decoded['greetings'];
+                          });
+
+                        },
+                        child: Text("Chatbot",style:TextStyle(color: Colors.white))),
 
 
                   ],

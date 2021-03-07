@@ -46,6 +46,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
+  http: ^0.12.1
 
 dev_dependencies:
   flutter_test:
@@ -58,14 +59,14 @@ dev_dependencies:
 flutter:
   assets:
     - assets/
-  fonts:
-  - family: Pacifico
-    fonts:
-    - asset: fonts/Pacifico-Regular.ttf
+  #fonts:
+  #- family: Pacifico
+   # fonts:
+    #- asset: fonts/Pacifico-Regular.ttf
 
-  - family: Source Sans Pro
-    fonts:
-    - asset: fonts/SourceSansPro-Regular.ttf
+  #- family: Source Sans Pro
+   # fonts:
+    #- asset: fonts/SourceSansPro-Regular.ttf
 
 
   # The following line ensures that the Material Icons font is
