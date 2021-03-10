@@ -73,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+
       appBar: new PreferredSize(
         child: new Container(
           padding: new EdgeInsets.only(
@@ -115,6 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       body:
+
       Container(decoration: const BoxDecoration(
         color: Color(0xFF202125),
 
@@ -123,6 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
 
           children: [
+            Text(greetings, style: TextStyle(fontSize: 23.0)),
             SizedBox(height: 120,),
             Expanded(
                 flex: 1,
@@ -172,14 +175,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         padding: EdgeInsets.fromLTRB(80, 20, 80, 20),
                         shape:  new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                         onPressed:() async{
-                          final res = await  http.get("http://127.0.0.1:5000/");
-                          final decoded = json.decode(res.body) as Map <String, dynamic>;
+                        final res = await http.get("http://192.168.10.2/127.0.0.1:5000/");
+                        final decoded = json.decode(res.body) as Map <String, dynamic>;
 
                           setState(() {
                             greetings = decoded['greetings'];
                           });
 
                         },
+
                         child: Text("Chatbot",style:TextStyle(color: Colors.white))),
 
 

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -54,11 +53,11 @@ class _doctor_inventoryState extends State<doctor_inventory> {
 
           padding: new EdgeInsets.only(top: MediaQuery.of(context).padding.top),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.fromLTRB(1,10,1,10),
             child: Row(
               children: [IconButton(
 
-                  icon: Icon(Icons.more_vert,color: CupertinoColors.white,),
+                  icon: Icon(Icons.menu,color: CupertinoColors.white,),
                 onPressed: () => _scaffoldKey.currentState.openDrawer(),),
                 SizedBox(
                   width: 5,
@@ -68,10 +67,10 @@ class _doctor_inventoryState extends State<doctor_inventory> {
                       borderRadius: new BorderRadius.circular(80.0)),
                   onPressed: () {},
                   color: Color(0xFF3C4043),
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                   child: Row(
                     children: [
-                      Text("Search for Patient with name",
+                      Text(" Search for Patient with name",
                           style: TextStyle(color:Color(0XFFDCDDE1),)),
                       SizedBox(
                         width: 20,
@@ -89,7 +88,7 @@ class _doctor_inventoryState extends State<doctor_inventory> {
                 RaisedButton(
                   color: Color(0xFF3C4043),
                   shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(70.0)),
+                      borderRadius: new BorderRadius.circular(50.0)),
                   onPressed: () {Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => doctor_message()),
@@ -138,7 +137,7 @@ class _doctor_inventoryState extends State<doctor_inventory> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor:Color(0XFF3C4043),
+        backgroundColor: Color(0XFF3C4043),
         focusColor: Colors.blue,
         focusElevation: 100,
         splashColor: CupertinoColors.white,

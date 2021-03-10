@@ -53,6 +53,7 @@ class _ChangePasswordState extends State<ChangePassword>{
           height: 50,
         ),
           TextField(
+            style: TextStyle(color: Colors.white),
     decoration: InputDecoration(
     contentPadding: EdgeInsets.only(bottom: 20),
     labelText: 'New Password',
@@ -68,6 +69,7 @@ class _ChangePasswordState extends State<ChangePassword>{
     ),
 
           TextField(
+            style: TextStyle(color: Colors.white),
     decoration: InputDecoration(
     contentPadding: EdgeInsets.only(bottom: 20),
     labelText: 'Re-enter new Password',

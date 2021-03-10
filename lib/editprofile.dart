@@ -1,12 +1,17 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
 
 final _firestore = Firestore.instance;
+FirebaseStorage _storage = FirebaseStorage.instance;
 FirebaseUser loggedInUser;
 final _auth = FirebaseAuth.instance;
 String email;
 String password;
+
 class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,6 +26,58 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile>{
+  File _image;
+  final _auth = FirebaseAuth.instance;
+
+  _imgFromCamera() async {
+    File image = await ImagePicker.pickImage(
+        source: ImageSource.camera, imageQuality: 50
+    );
+
+    setState(() {
+      _image = image;
+    });
+  }
+  _imgFromGallery() async {
+    File image = await  ImagePicker.pickImage(
+        source: ImageSource.gallery, imageQuality: 50
+    );
+
+    setState(() {
+      _image = image;
+    });
+  }
+  void _showPicker(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Container(
+              child: new Wrap(
+                children: <Widget>[
+                  new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text('Photo Library'),
+                      onTap: () {
+                        _imgFromGallery();
+                        Navigator.of(context).pop();
+                      }),
+                  new ListTile(
+                    leading: new Icon(Icons.photo_camera),
+                    title: new Text('Camera'),
+                    onTap: () {
+                      _imgFromCamera();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +116,40 @@ class _EditProfileState extends State<EditProfile>{
               height: 15,
             ),
             Center(
-              child: Stack(
+              child:
+              GestureDetector(
+                onTap: () {
+                  _showPicker(context);
+                },
+                child: CircleAvatar(
+                  radius: 55,
+                  backgroundColor: Colors.blueGrey,
+                  child: _image != null
+                      ? ClipOval(
+
+                    //borderRadius: BorderRadius.circular(30),
+                    child: Image.file(
+                      _image, width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+
+                      // fit: BoxFit.contain,
+                    ),
+                  )
+                      : Container(
+                    decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(50)),
+                    width: 100,
+                    height: 100,
+                    child: Icon(
+                      Icons.camera_alt,
+                      color: Colors.grey[800],
+                    ),
+                  ),
+                ),
+              ),
+              /*child: Stack(
                 children: [
                   Container(
                     width: 130,
@@ -103,12 +193,13 @@ class _EditProfileState extends State<EditProfile>{
                       ),
                   ),
                 ],
-              ),
+              ),*/
             ),
             SizedBox(
               height: 35,
             ),
             TextField(
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 3),
                 labelText: 'First Name',
@@ -124,6 +215,7 @@ class _EditProfileState extends State<EditProfile>{
             ),
 
             TextField(
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 3),
                 labelText: 'Last Name',
@@ -138,6 +230,7 @@ class _EditProfileState extends State<EditProfile>{
               height: 35,
             ),
             TextField(
+              style: TextStyle(color: Colors.white),
               keyboardType: TextInputType.emailAddress,
               onChanged: (value) {
                 email = value;
@@ -156,6 +249,7 @@ class _EditProfileState extends State<EditProfile>{
               height: 35,
             ),
             TextField(
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 3),
                 labelText: 'Age',
@@ -170,6 +264,7 @@ class _EditProfileState extends State<EditProfile>{
               height: 35,
             ),
             TextField(
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 3),
                 labelText: 'Phone',

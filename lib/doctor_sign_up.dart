@@ -8,15 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:gender_selector/gender_selector.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:remedium/doctor_inventory.dart';
-
 import 'doctor_sign_in.dart';
+
 final _firestore = Firestore.instance;
 FirebaseStorage _storage = FirebaseStorage.instance;
 
-
 class doctor_sign_up extends StatefulWidget {
-
-
   @override
   _doctor_sign_upState createState() => _doctor_sign_upState();
 }
@@ -158,8 +155,6 @@ class _doctor_sign_upState extends State<doctor_sign_up> {
             color: Color(0xFF202125),
           ),
           child: ListView(
-
-
             children: [
               GestureDetector(
                 onTap: () {
@@ -277,19 +272,23 @@ class _doctor_sign_upState extends State<doctor_sign_up> {
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
-                            child:DropdownButton(
-                              iconDisabledColor:Color(0xFF3C4043),
+                            child: DropdownButton(
+                              hint: Text('gender'),
+                              iconDisabledColor: Color(0xFF3C4043),
                               onChanged: (value) {value==1?gender="male":gender="female";},
-                              hint: Text("gender"),
                               value: 1,
+                              dropdownColor: Color(0xFF3C4043),
 
                               items: [
                                 DropdownMenuItem(
-                                  child: Text("Male"),
+                                  child: Text("Male" ,
+                                      style: TextStyle(color: Colors.white), ),
                                   value: 1,
                                 ),
                                 DropdownMenuItem(
-                                  child: Text("Female"),
+
+                                  child: Text("Female",
+                                    style: TextStyle(color: Colors.white),),
                                   value: 2,
                                 ),
 

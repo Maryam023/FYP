@@ -8,9 +8,7 @@ import 'package:remedium/report_generate.dart';
 import 'package:tflite/tflite.dart';
 
 
-
 final _firestore = Firestore.instance;
-
 
 class covid extends StatefulWidget {
   final doc_id;
@@ -62,9 +60,9 @@ class _covidState extends State<covid> {
 
                   }),
               Padding(
-                padding: const EdgeInsets.only(top: 5),
+                padding: const EdgeInsets.only(top: 10),
                 child: Text("Covid-19 X-Ray Image Diagnosis",
-                    style: TextStyle(fontSize: 20, color: Colors.white)),
+                    style: TextStyle(fontSize: 17, color: Colors.white)),
               ),
             ],
           ),

@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:gender_selector/gender_selector.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:remedium/doctor_inventory.dart';
-
 import 'doctor_sign_in.dart';
 import 'package:intl/intl.dart';
 
@@ -171,17 +170,17 @@ class _create_patientState extends State<create_patient> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.fromLTRB(10, 10, 5, 5),
                     child: Text(
                         "Personal Information                                        ",
                         style: TextStyle(
-                            fontSize: 20, color: CupertinoColors.white)),
+                            fontSize: 18, fontWeight: FontWeight.bold, color: CupertinoColors.white, letterSpacing: 2.2,)),
                   ),
                   Row(
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: TextField(style: TextStyle(color: Colors.white),
                             onChanged: (value) {
                               first_name = value;
@@ -203,7 +202,7 @@ class _create_patientState extends State<create_patient> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: TextField(style: TextStyle(color: Colors.white),
                             onChanged: (value) {
                               last_name = value;
@@ -228,7 +227,7 @@ class _create_patientState extends State<create_patient> {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: TextField(style: TextStyle(color: Colors.white),
                             onChanged: (value) {
                               age = value;
@@ -249,7 +248,7 @@ class _create_patientState extends State<create_patient> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: DropdownButton(
                             onChanged: (value) {
                               value == 1 ? gender = "Male" : gender = "Female";
@@ -278,16 +277,16 @@ class _create_patientState extends State<create_patient> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.fromLTRB(10, 10, 5, 5),
                     child: Text(
                         "Contact Info                                        ",
-                        style: TextStyle(fontSize: 24,color:CupertinoColors.white,)),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:CupertinoColors.white, letterSpacing: 2.2,)),
                   ),
                   Row(
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: TextField(style: TextStyle(color: Colors.white),
                             onChanged: (value) {
                               email = value;
@@ -312,7 +311,7 @@ class _create_patientState extends State<create_patient> {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: TextField(style: TextStyle(color: Colors.white),
                             onChanged: (value) {
                               zip_code = value;
@@ -333,7 +332,7 @@ class _create_patientState extends State<create_patient> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: TextField(style: TextStyle(color: Colors.white),
                             onChanged: (value) {
                               telephone = value;
@@ -357,7 +356,7 @@ class _create_patientState extends State<create_patient> {
                   Row(children: [
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.all(12.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: TextField(style: TextStyle(color: Colors.white),
                           onChanged: (value) {
                             condition = value;
@@ -383,14 +382,13 @@ class _create_patientState extends State<create_patient> {
             ),
             Container(
               child: RaisedButton(
-                  color: Color(0XFF3C4043),
-                  padding: EdgeInsets.fromLTRB(80, 20, 80, 20),
-                  shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0)),
+                  color: Colors.blue,
+                  padding: EdgeInsets.symmetric(horizontal: 65),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
                   onPressed: () async {
                     try {
                       StorageReference reference = _storage.ref().child("doctor_profile/${email}");
-
                       //Upload the file to firebase
                       StorageUploadTask uploadTask = reference.putFile(_image);
                       String url = await (await uploadTask.onComplete).ref.getDownloadURL();
