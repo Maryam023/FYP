@@ -71,7 +71,10 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    - assets/
+    - assets/images/undraw_Chat_bot_re_e2gj.png
+    - assets/images/diagnosis.png
+    - assets/images/mobile_testing.png
+    - assets/images/DifferentialDiagnosis.png
   #fonts:
   #- family: Pacifico
    # fonts:
