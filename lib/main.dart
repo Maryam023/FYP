@@ -101,14 +101,14 @@ class MyApp extends StatelessWidget {
       alignment: Alignment.center,
       width: MediaQuery.of(context).size.width,
       height: Platform.isAndroid ? 70:60,
-      color: Colors.blue[800],
+      color: Color(0xFF7c4dff),
       child: FlatButton(
           //shape:  new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
           onPressed: (){Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => signin()),
           );},
-          color: Color(0x7f3ff8),
+          color: Color(0xFF7c4dff),
          // padding: EdgeInsets.fromLTRB(80, 20, 80, 20),
       child: Text("GET STARTED NOW",
       style: TextStyle(

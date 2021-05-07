@@ -6,6 +6,7 @@ import 'package:remedium/patient_sign_in.dart';
 import 'package:http/http.dart' as http;
 //import 'consultation.dart';
 import 'doctor_sign_in.dart';
+import 'selfdiagnosis.dart';
 
 class signin extends StatelessWidget {
 
@@ -14,19 +15,9 @@ class signin extends StatelessWidget {
     return MaterialApp(
       title: 'Remedium',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
+
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Welcome to Remedium',
@@ -83,18 +74,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: new TextStyle(
                     fontSize: 23.0,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white
+                    color: Color(0xFF7c4dff)
                 ),
               ),
             ),
           ),
           decoration: new BoxDecoration(
 
-                  color: Color(0xFF202125),
+                  //color: Color(0xFF202125),
+            color: Colors.white,
 
               boxShadow: [
                 new BoxShadow(
-                  color: Colors.blue,
+                  color: Color(0xFF7c4dff),
                   blurRadius: 20.0,
                   spreadRadius: 1.0,
                 ),
@@ -126,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Center(
                   child: Container(
                         height: 25,
-                      child:Text("SIGN IN AS",style: TextStyle(fontSize: 25,color: Colors.white),)),
+                      child:Text("SIGN IN AS",style: TextStyle(fontSize: 25,color: Color(0xFF7c4dff)),)),
                 )),
             Expanded(
               flex: 3,
@@ -140,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           context,
                           MaterialPageRoute(builder: (context) => doctor_sign_in()),
                         );},
-                        color: Color(0xFF3C4043),
+                        color: Color(0xFF7c4dff),
 
 
                         padding: EdgeInsets.fromLTRB(80, 20, 80, 20),
@@ -152,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 20,
                     ),
                     RaisedButton(
-                        color: Color(0xFF3C4043),
+                        color: Color(0xFF7c4dff),
                         padding: EdgeInsets.fromLTRB(80, 20, 80, 20),
                         shape:  new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                         onPressed:(){Navigator.push(
@@ -164,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 20,
                     ),
                     RaisedButton(
-                        color: Color(0xFF3C4043),
+                        color: Color(0xFF7c4dff),
                         padding: EdgeInsets.fromLTRB(80, 20, 80, 20),
                         shape:  new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
                         onPressed:() async{
@@ -178,6 +170,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         },
 
                         child: Text("Chatbot",style:TextStyle(color: Colors.white))),
+
+                    SizedBox(
+                      height: 20,
+                    ),
+                    RaisedButton(
+                        color: Color(0xFF7c4dff),
+                        padding: EdgeInsets.fromLTRB(80, 20, 80, 20),
+                        shape:  new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                        onPressed:(){Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => selfdiagnosis()),
+                        );},
+                        child: Text("Diagnosis",style:TextStyle(color: Colors.white))),
 
 
                   ],
