@@ -6,6 +6,7 @@ class symptomdata {
 
   symptomdata({
     @required this.title,
+    // this.value = false,
     this.value = false,
 });
 }
