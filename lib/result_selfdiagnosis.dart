@@ -115,7 +115,7 @@ class result_selfdiagnosis extends StatelessWidget {
                       // padding: new EdgeInsets.all(10),
                       child: Center(
                         child: Text(
-                            "On the basis of your symptoms, chances that you have contracted covid-19 are none ",
+                            "On the basis of your symptoms, chances that you have contracted covid-19 are extremely low ",
                             style: TextStyle(color: Color(0xFFADD8F3),
                                 fontSize: 25, fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center),
