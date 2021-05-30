@@ -100,7 +100,7 @@ class result_selfdiagnosis extends StatelessWidget {
                       // padding: new EdgeInsets.all(10),
                       child: Center(
                         child: Text(
-                            "On the basis of your symptoms, chances that you have contracted covid-19 are very low ",
+                            "On the basis of your symptoms, your chances of contracting covid-19 are very low.",
                             style: TextStyle(color: Color(0xFFADD8F3),
                                 fontSize: 25, fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center),
@@ -115,7 +115,7 @@ class result_selfdiagnosis extends StatelessWidget {
                       // padding: new EdgeInsets.all(10),
                       child: Center(
                         child: Text(
-                            "On the basis of your symptoms, chances that you have contracted covid-19 are extremely low ",
+                            "On the basis of your symptoms, chances that you have contracted covid-19 are moderate ",
                             style: TextStyle(color: Color(0xFFADD8F3),
                                 fontSize: 25, fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center),
@@ -145,7 +145,7 @@ class result_selfdiagnosis extends StatelessWidget {
                       // padding: new EdgeInsets.all(10),
                       child: Center(
                         child: Text(
-                            "On the basis of your symptoms, chances that you have contracted covid-19 are low ",
+                            "On the basis of your symptoms, chances that you have contracted covid-19 are high ",
                             style: TextStyle(color: Color(0xFFADD8F3),
                                 fontSize: 25, fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center),
@@ -175,7 +175,7 @@ class result_selfdiagnosis extends StatelessWidget {
                       // padding: new EdgeInsets.all(10),
                       child: Center(
                         child: Text(
-                            "On the basis of your symptoms, chances that you have contracted covid-19 are moderate ",
+                            "On the basis of your symptoms, chances that you have contracted covid-19 are high ",
                             style: TextStyle(color: Color(0xFFADD8F3),
                                 fontSize: 25, fontWeight: FontWeight.w400),
                             textAlign: TextAlign.center),
